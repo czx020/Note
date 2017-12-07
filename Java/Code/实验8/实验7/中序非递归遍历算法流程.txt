@@ -1,0 +1,11 @@
+中序非递归遍历算法流程:
+
+
+     定义node;     定义及初始化栈;
+     node = rootNode;
+     while(node !=null || 栈不空)
+          if (node != null)  
+               {node进栈；node = node.getLeftChild();}
+           else
+               {栈顶给node并出栈；输出node；
+                 node = node.getRightChild();}
