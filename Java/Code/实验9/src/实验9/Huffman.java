@@ -1,4 +1,4 @@
-package ÊµÑé9;
+package å®éªŒ9;
 import java.util.Scanner;
 public class Huffman {
 	public static void main(String[]args) {
@@ -17,7 +17,7 @@ public class Huffman {
 		Node[] nodes = new Node[20];
 		int n;
 		public void createTree() {
-			System.out.println("ÇëÊäÈëÒ¶×ÓÊı£¨Ğ¡ÓÚ10");
+			System.out.println("è¯·è¾“å…¥å¶å­æ•°ï¼ˆå°äº10)");
 			Scanner scanner = new Scanner(System.in);
 			this.n = scanner.nextInt();
 			for (int i = 0;i<2*n-1;i++){
@@ -26,12 +26,12 @@ public class Huffman {
 				nodes[i].rc = -1;
 				nodes[i].parent = -1;
 			}
-			System.out.println("ÇëÊäÈëÒ¶×ÓµÄÖµ");
+			System.out.println("è¯·è¾“å…¥å¶å­çš„å€¼");
 			for (int i = 0;i < n;i++){
 				nodes[i].value = scanner.next().charAt(0);	
 			}
 			
-			System.out.println("ÇëÊäÈëÒ¶×ÓµÄÈ¨ÖØ");
+			System.out.println("è¯·è¾“å…¥å¶å­çš„æƒé‡");
 			for (int i = 0;i<n;i++) {
 				nodes[i].weight = scanner.nextInt();
 			}
