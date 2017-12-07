@@ -73,9 +73,9 @@ public class Huffman {
 					temp[num++] = (i == nodes[node.parent].lc) ? 0 : 1;
 					node = nodes[node.parent];
 				}
-				System.out.println(nodes[i].value + ":");
+				System.out.print(nodes[i].value + ":");
 				while(num>0) {
-					System.out.println(temp[--num]);
+					System.out.print(temp[--num]);
 				}
 				System.out.println();
 			}
