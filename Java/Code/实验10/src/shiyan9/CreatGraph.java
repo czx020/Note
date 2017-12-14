@@ -20,14 +20,14 @@ public class CreatGraph{
 		private int n;
 		private int e;
 		public void createGraph(){
-			System.out.println(" ‰»În(n<50");
+			System.out.println("ËæìÂÖ•n(n<50");
 			Scanner scanner = new Scanner(System.in);
 			this.n = scanner.nextInt();
 			for (int i = 1;i<= this.n;i++){
 				Gv[i] = new vNode();
 				Gv[i].vertex = i;
 			}
-			System.out.println("«Î ‰»Î±ﬂ");
+			System.out.println("ËØ∑ËæìÂÖ•Ëæπ");
 			int v1 = scanner.nextInt();
 			int v2 = scanner.nextInt();
 			this.e = 0;
