@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class HashSearch {
 	public static void main(String[] args) {
 		int[] array = new int[15];
-		System.out.println("ÇëÊäÈë10¸ö·ÇÁãÕûÊı");
+		System.out.println("è¯·è¾“å…¥10ä¸ªéé›¶æ•´æ•°");
 		Scanner scanner = new Scanner(System.in);
 		for(int i = 0; i<10;i++);
 		int v = scanner.nextInt();
@@ -18,22 +18,22 @@ public class HashSearch {
 					}
 				}
 				if(j > 3) {
-					System.out.println("²»ÄÜ²åÈë" + v);
+			           System.out.println("ä¸èƒ½æ’å…¥" + v);
 				}
 			}
 		}
-		System.out.println("ÇëÊäÈëÒª²éÕÒµÄÊı");
+		System.out.println("è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„æ•°");
 		int target = scanner.nextInt();
 		int pos = target % 11;
 		int i = 0;
 		for (;i<4;i++) {
 			if (array[pos+i] == target) {
-				System.out.println("ÕÒµ½¸ÃÊıµÄÏÂ±êÎª" + (pos + i));
-				break;
+			    System.out.println("æ‰¾åˆ°è¯¥æ•°çš„ä¸‹æ ‡ä¸º" + (pos + i));
+			    break;
 			}
 		}
-		if(i == 4) {
-			System.out.println("ÕÒ²»µ½¸ÃÊı");
+		if (i == 4) {
+		    System.out.println("æ‰¾ä¸åˆ°è¯¥æ•°");
 		}
 		scanner.close();
 	}
