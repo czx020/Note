@@ -1,16 +1,15 @@
-/*Àı4-6
-·â×°°´ÏúÊÛ¶îÌá³ÉµÄÔ±¹¤»ù±¾ĞÅÏ¢
+/*å°è£…æŒ‰é”€å”®é¢ææˆçš„å‘˜å·¥åŸºæœ¬ä¿¡æ¯
 */
 public class CommissionEmployee{
 	private String name;
 	private String ID;
-	private double grossSales;//ÏúÊÛ¶î
-	private double commissionRate;//Ìá³ÉÂÊ
+	private double grossSales;//é”€å”®é¢
+	private double commissionRate;//ææˆç‡
 	public CommissionEmployee(String name, String ID,double sales,double rate){
 		this.name=name;
 		this.ID=ID;
 		setGrossSales(sales);
-		setcommissionRate(rate);
+		setCommissionRate(rate);
 	}
 	public void setName (String name){
 		this.name=name;
@@ -25,7 +24,7 @@ public class CommissionEmployee{
 		return ID;
 	}
 	public void setGrossSales (double sales){
-		grossSales = sales<0.0)?0.0:sales;
+		grossSales =( sales<0.0)?0.0:sales;
 	}
 	public double getGrossSales(){
 		return grossSales;
@@ -36,10 +35,10 @@ public class CommissionEmployee{
 	public double getCommissionRate(){
 		return commissionRate;
 	}
-	public double earning (0{
+	public double earnings (){
 		return commissionRate*grossSales;
 	}
 	public String toString(){
-		return String.format("%s:%s\n%s:%s\n%s:%.2f\n%s:%.2f","Ô±¹¤ĞÕÃû",name,"Ô±¹¤¹¤ºÅ",ID,"ÏúÊÛ¶î",grossSales,"Ìá³ÉÂÊ",commissionRate);
+		return String.format("%s:%s\n%s:%s\n%s:%.2f\n%s:%.2f","å‘˜å·¥å§“å",name,"å‘˜å·¥å·¥å·",ID,"é”€å”®é¢",grossSales,"ææˆç‡",commissionRate);
 	}
 }

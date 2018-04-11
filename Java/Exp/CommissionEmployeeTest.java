@@ -1,14 +1,15 @@
 public class CommissionEmployeeTest{
 	public static void main (String[]args){
-		CommissionEmployeeommissionEmployee employee =new CommissionEmployee ("Ğ¡Àî×Ó","010001",1000000,0.6);
-		System.out.println("Ô±¹¤»ù±¾Çé¿öÈçÏÂ:\n");
-		System,out.printf("%S%s\n"£¬"Ô±¹¤¹¤ºÅ",employee.getID());
-		System.our.printf("%s%.2f\n","ÏúÊÛ¶î",employee.getGrossSales());
-		System.our.printf("%s%.2f\n","Ìá³ÉÂÊ",employee.getCommissionRate());
-		System.our.printf("%s%.2f\n","Ô±¹¤¹¤×Ê",employee.earnings());
+		CommissionEmployee employee = new CommissionEmployee("å°æå­","010001",1000000,.06);
+		System.out.println("å‘˜å·¥åŸºæœ¬ä¿¡æ¯å¦‚ä¸‹:\n");
+        System.out.printf("%s%s\n","å‘˜å·¥å§“å",employee.getName());
+		System.out.printf("%s%s\n","å‘˜å·¥å·¥å·",employee.getID());
+		System.out.printf("%s%.2f\n","é”€å”®é¢",employee.getGrossSales());
+		System.out.printf("%s%.2f\n","ææˆç‡",employee.getCommissionRate());
+		System.out.printf("%s%.2f\n","å‘˜å·¥å·¥èµ„",employee.earnings());
 		employee.setGrossSales(500);
 		employee.setCommissionRate(.1);
-		System.our.printf("\n%s:\n\n%s\n","¸üĞÂÒÔºóµÄÔ±¹¤ĞÅÏ¢",employee);
-		System.our.printf("%s%.2f\n","Ô±¹¤¹¤×Ê",employee.earnings());
+		System.out.printf("\n%s:\n\n%s\n","æ›´æ–°ä»¥åçš„å‘˜å·¥ä¿¡æ¯",employee);
+		System.out.printf("%s%.2f\n","å‘˜å·¥å·¥èµ„",employee.earnings());
 }
 }
