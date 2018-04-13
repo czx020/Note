@@ -588,11 +588,20 @@ from zg group by 仓库号) as a on zg.仓库号=ck.职工号
 where zg.月工资>a.avg(月工资)
 
 ```
+```sql
+select 职工号
+from zg as a join 
+(select 仓库号,avg(月工资) as 平均工资 from zg group by 仓库号) 
+as b on a.仓库号=b.仓库号 
+where a.月工资> b.平均工资
+```
 13.	求出哪个职工所发出的订购单最多。
  ```sql
- select 职工号,max(count(订购单号))
- from dg
- group by 职工号
+select  top 1  职工号,count(订购单号) as 订购单数
+from dg
+group by 职工号
+order by 订购单数 desc
+
  ```
 
 
