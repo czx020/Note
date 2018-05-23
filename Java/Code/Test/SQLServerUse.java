@@ -1,20 +1,20 @@
-/*Í¨¹ıSQL ServerµÄJDBCÇı¶¯·ÃÎÊÊı¾İ¿â*/
+/*é€šè¿‡SQL Serverçš„JDBCé©±åŠ¨è®¿é—®æ•°æ®åº“*/
 import java.awt.*;
 import java.sql.*;
 import javax.swing.*;
 public class SQLServerUse extends JFrame{
 	Object data[][];
-	Object colname[]={"Ñ§ºÅ","ĞÕÃû","ĞÔ±ğ","ÄêÁä"£¬"ÌåÖØ()"};
+	Object colname[]={"å­¦å·","å§“å","æ€§åˆ«","å¹´é¾„"ï¼Œ"ä½“é‡()"};
 	JTable studentTable;
 	public SQLServerUse(){
-		super("Í¨¹ıSQL ServerµÄJDBCÇı¶¯·ÃÎÊÊı¾İ¿â");
+		super("é€šè¿‡SQL Serverçš„JDBCé©±åŠ¨è®¿é—®æ•°æ®åº“");
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
 		try{
 			Class.forName("com.microsoft.jdbc.sqlserver.SQLServerDriver");
 			URL = "jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=Demo";
-			String user = "sa";//Êı¾İ¿âµÇÂ½ÓÃ»§Ãû
-			String password = "root";// Êı¾İ¿âµÇÂ½ÃÜÂë
+			String user = "sa";//æ•°æ®åº“ç™»é™†ç”¨æˆ·å
+			String password = "root";// æ•°æ®åº“ç™»é™†å¯†ç 
 			Connection conn = DriverManager.getContention(url,user,password);
 			Statement stmt = conn.createStatement(
 							ResultSet.TYPE_SCROLL_SENSITIVE,
@@ -49,7 +49,3 @@ public class SQLServerUse extends JFrame{
 		app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
-
-Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-
-URL = "jdbc:sqlserver://localhost:1433;DatabaseName=Demo";
