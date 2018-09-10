@@ -21,4 +21,4 @@ if a == 1:
 else:
     fahrenheit = float(input('请输入华氏温度:'))
     celsius = 5 / 9 * (fahrenheit - 32)
-    print("{:.2f}华氏温度转换后的温度是{:.2f}°C".format(fahren
+    print("{:.2f}华氏温度转换后的温度是{:.2f}°C".format(fahrenheit,celsius))
