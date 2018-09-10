@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# -*- auth: vitan -*-
+# Author:Vitan
 # 摄氏度转华氏度 华氏°F＝ ℃×9/5＋32
 clesius = float(input('请输入摄氏温度：'))
 fahrenheit = clesius * 9/5 +32
