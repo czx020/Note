@@ -8,3 +8,17 @@ print("转换后的温度是{:.2f}°F".format(fahrenheit))
 fahrenheit = float(input('请输入华氏温度:'))
 celsius = 5/9*(fahrenheit - 32)
 print("转换后的温度是{:.2f}°C".format(celsius))
+
+
+
+# if 语句
+a = int(input('摄氏度转华氏度请输入1\n华氏度转摄氏度请输入2\n'))
+
+if a == 1:
+    clesius = float(input('请输入摄氏温度：'))
+    fahrenheit = clesius * 9 / 5 + 32
+    print("{:.2f}摄氏温度转换华氏温度是{:.2f}°F".format(clesius,fahrenheit))
+else:
+    fahrenheit = float(input('请输入华氏温度:'))
+    celsius = 5 / 9 * (fahrenheit - 32)
+    print("{:.2f}华氏温度转换后的温度是{:.2f}°C".format(fahren
