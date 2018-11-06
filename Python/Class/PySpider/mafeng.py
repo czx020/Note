@@ -14,7 +14,7 @@ class Handler(BaseHandler):
 
     @every(minutes=24 * 60)
     def on_start(self):
-        self.crawl('http://www.mafengwo.cn/jd/10088/gonglve.html', callback=self.index_page,fetch_type='js')
+        self.crawl('http://www.mafengwo.cn/jd/10088/gonglve.html', callback=self.get_index,fetch_type='js')
         
     def get_taskid(self, task):
         return md5string(task['url']+json.dumps(task['fetch'].get('data', '')))
