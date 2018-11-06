@@ -9,16 +9,27 @@ from pyspider.libs.utils import md5string
 import re
 from fake_useragent import UserAgent
 
-class Handler(BaseHandler):
-    
-    crawl_config = {
+default_headers = {
+           'Accept': 'application/json, text/javascript, */*; q=0.01',
+           'Accept-Encoding': 'gzip, deflate',
+           'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+            'Connection': 'keep-alive',
+            'Content-Length':' 68',
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'Connection':'keep-alive',
+            'Upgrade-Insecure-Requests': '1',
+            'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3100.0 Safari/537.36',
+            'X-Requested-With': 'XMLHttpRequest',
+        }
 
+class Handler(BaseHandler):
+    crawl_config = {
+        'headers': default_headers,
     }
     
     @every(minutes=24 * 60)
     def on_start(self):
-        headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36 OPR/54.0.2952.64' }
-        self.crawl('http://www.mafengwo.cn/jd/10088/gonglve.html', callback=self.get_index,fetch_type='js',headers = headers)
+        self.crawl('http://www.mafengwo.cn/jd/10088/gonglve.html', callback=self.get_index,fetch_type='js')
         
     def get_taskid(self, task):
         return md5string(task['url']+json.dumps(task['fetch'].get('data', '')))
@@ -43,9 +54,9 @@ class Handler(BaseHandler):
         pattern = re.compile('<a href="(.*?)" target=')
         urls = re.findall(pattern,result)
         for url in urls:
-            self.crawl('www.mafengwo.cn'+url, callback=self.detail_page,fetch_type='js')
+            self.crawl('https://www.mafengwo.cn'+url, callback=self.detail_page,fetch_type='js')
 
-    @config(priority=2)
+    @config(priority=2) # 数字越大优先级越高
     def detail_page(self, response):
         return {
             "name": response.doc('h1').text(),
@@ -54,3 +65,4 @@ class Handler(BaseHandler):
             "website":response.doc('h1').text(),
             
         }
+
