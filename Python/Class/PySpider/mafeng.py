@@ -27,9 +27,9 @@ class Handler(BaseHandler):
         'headers': default_headers,
     }
     
-    @every(minutes=24 * 60)
+    @every(minutes=24 * 60) # 每天调度一次on_start()函数
     def on_start(self):
-        self.crawl('http://www.mafengwo.cn/jd/10088/gonglve.html', callback=self.get_index,fetch_type='js')
+        self.crawl('http://www.mafengwo.cn/jd/10207/gonglve.html', callback=self.get_index,fetch_type='js')
         
     def get_taskid(self, task):
         return md5string(task['url']+json.dumps(task['fetch'].get('data', '')))
@@ -40,11 +40,11 @@ class Handler(BaseHandler):
         for i in range(1,total+1):
             data = {
                     'sAct':'KMdd_StructWebAjax|GetPoisByTag',
-                    'iMddid':'10088',
+                    'iMddid':'10207',
                     ' iTagId':0,
                     'iPage':i
              }
-            self.crawl(url,method='POST',data=data,callback=self.index_page)
+            self.crawl(url,method='POST',data=data,callback=self.index_page,fetch_type='js')
                                        
     @config(age=10 * 24 * 60 * 60)
     def index_page(self, response):
@@ -54,15 +54,16 @@ class Handler(BaseHandler):
         pattern = re.compile('<a href="(.*?)" target=')
         urls = re.findall(pattern,result)
         for url in urls:
-            self.crawl('https://www.mafengwo.cn'+url, callback=self.detail_page,fetch_type='js')
+            self.crawl('http://www.mafengwo.cn'+url, callback=self.detail_page,fetch_type='js')
 
     @config(priority=2) # 数字越大优先级越高
     def detail_page(self, response):
         return {
             "name": response.doc('h1').text(),
-            "price":response.doc('h1').text(),
-            "phone":response.doc('h1').text(),
-            "website":response.doc('h1').text(),
+            "location":response.doc('.mhd > p').text(),
+            "price":response.doc('.mod-detail dd > div').text(),
+            "phone":response.doc('.tel > .content').text(),
+            "visittime":response.doc('.item-time > .content').text(),
+            "website":response.doc('.content > a').text(),
             
         }
-
