@@ -4,7 +4,6 @@ from sklearn.cluster import KMeans
 import numpy as np
 from matplotlib import pyplot as plt
 
-
 picture = load_sample_image('china.jpg')
 pic2 = img.imread('v.jpg')
 # 根据图片的分辨率，可适当降低分辨率。
